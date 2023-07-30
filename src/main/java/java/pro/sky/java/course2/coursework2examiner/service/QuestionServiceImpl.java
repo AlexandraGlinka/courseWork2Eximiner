@@ -2,6 +2,8 @@ package java.pro.sky.java.course2.coursework2examiner.service;
 
 import org.springframework.stereotype.Service;
 
+import java.pro.sky.java.course2.coursework2examiner.exceptions.QuestionAlreadyAddedException;
+import java.pro.sky.java.course2.coursework2examiner.exceptions.QuestionNotExistException;
 import java.pro.sky.java.course2.coursework2examiner.model.Question;
 import java.util.Collection;
 import java.util.HashMap;
@@ -21,11 +23,17 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question addQuestion(Question question) {
+        if (questionsMap.containsKey(question.getQuestion())) {
+            throw new QuestionAlreadyAddedException();
+        }
         return questionsMap.put(question.getQuestion(), question);
     }
 
     @Override
     public Question removeQuestion(Question question) {
+        if (!questionsMap.containsKey(question.getQuestion())) {
+            throw new QuestionNotExistException();
+        }
         return questionsMap.remove(question.getQuestion());
     }
 
