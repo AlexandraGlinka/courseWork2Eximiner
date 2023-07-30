@@ -2,6 +2,7 @@ package java.pro.sky.java.course2.coursework2examiner.service;
 
 import org.springframework.stereotype.Service;
 
+import java.pro.sky.java.course2.coursework2examiner.exceptions.AmountBiggerThanQuestionsSet;
 import java.pro.sky.java.course2.coursework2examiner.model.Question;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +15,9 @@ public class ExaminerServiceImpl implements ExaminerService {
     }
     @Override
     public Set<Question> getQuastions(Integer amount) {
+        if (amount > questionService.getAllQuestions().size()) {
+            throw new AmountBiggerThanQuestionsSet();
+        }
         Set<Question> questionSet = new HashSet<>();
         while (questionSet.size() < amount) {
             questionSet.add(questionService.getRandomQuestion());

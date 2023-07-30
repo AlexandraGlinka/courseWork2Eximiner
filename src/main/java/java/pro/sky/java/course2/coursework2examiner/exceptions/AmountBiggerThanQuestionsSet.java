@@ -4,19 +4,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
-public class QuestionAlreadyAddedException extends RuntimeException {
-    public QuestionAlreadyAddedException() {
+public class AmountBiggerThanQuestionsSet extends RuntimeException{
+    public AmountBiggerThanQuestionsSet() {
     }
 
-    public QuestionAlreadyAddedException(String message) {
+    public AmountBiggerThanQuestionsSet(String message) {
         super(message);
     }
 
-    public QuestionAlreadyAddedException(String message, Throwable cause) {
+    public AmountBiggerThanQuestionsSet(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public QuestionAlreadyAddedException(Throwable cause) {
+    public AmountBiggerThanQuestionsSet(Throwable cause) {
         super(cause);
     }
 }

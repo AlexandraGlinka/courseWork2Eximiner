@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.pro.sky.java.course2.coursework2examiner.model.Question;
 import java.pro.sky.java.course2.coursework2examiner.repository.QuestionRepository;
+import java.pro.sky.java.course2.coursework2examiner.repository.QuestionRepositoryImpl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -15,7 +16,7 @@ public class QuestionServiceImpl implements QuestionService {
     private final Random random;
 
     public QuestionServiceImpl(QuestionRepository questionRepository) {
-        this.questionRepository = questionRepository;
+        this.questionRepository = new QuestionRepositoryImpl();
         this.random = new Random();
     }
     @Override
