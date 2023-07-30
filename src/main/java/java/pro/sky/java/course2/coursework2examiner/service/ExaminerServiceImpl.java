@@ -3,21 +3,21 @@ package java.pro.sky.java.course2.coursework2examiner.service;
 import org.springframework.stereotype.Service;
 
 import java.pro.sky.java.course2.coursework2examiner.model.Question;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
     private final QuestionService questionService;
-    private final Collection<QuestionService> questionServiceCollection;
 
-    public ExaminerServiceImpl(QuestionService questionService, Collection<QuestionService> questionServiceCollection) {
+    public ExaminerServiceImpl(QuestionService questionService) {
         this.questionService = questionService;
-        this.questionServiceCollection = questionServiceCollection;
     }
     @Override
-    public Collection<Question> getQuastions(Integer amount) {
-        questionServiceCollection.add((QuestionService) questionService.getRandomQuestion());
-        return Collections.unmodifiableCollection(questionServiceCollection);
+    public Set<Question> getQuastions(Integer amount) {
+        Set<Question> questionSet = new HashSet<>();
+        while (questionSet.size() < amount) {
+            questionSet.add(questionService.getRandomQuestion());
+        }
+        return questionSet;
     }
 }
