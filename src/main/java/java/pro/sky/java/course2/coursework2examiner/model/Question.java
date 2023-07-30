@@ -1,4 +1,4 @@
-package java.pro.sky.java.course2.coursework2eximiner.model;
+package java.pro.sky.java.course2.coursework2examiner.model;
 
 public class Question {
     private String question;

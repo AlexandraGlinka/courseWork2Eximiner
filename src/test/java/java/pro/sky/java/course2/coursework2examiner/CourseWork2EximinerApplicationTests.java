@@ -1,4 +1,4 @@
-package java.pro.sky.java.course2.coursework2eximiner;
+package java.pro.sky.java.course2.coursework2examiner;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
