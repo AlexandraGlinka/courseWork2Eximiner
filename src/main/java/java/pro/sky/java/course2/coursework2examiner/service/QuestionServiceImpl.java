@@ -4,7 +4,9 @@ import org.springframework.stereotype.Service;
 
 import java.pro.sky.java.course2.coursework2examiner.model.Question;
 import java.pro.sky.java.course2.coursework2examiner.repository.QuestionRepository;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -32,10 +34,9 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public Integer getRandomQuestion() {
-        Integer[] arrayQuestions = questionRepository.getAllQuestions().
-                toArray(new Integer[questionRepository.getAllQuestions().size()]); // из сета делаем array
-        Integer randomQuestion = random.nextInt(questionRepository.getAllQuestions().size()); // рандомное число в размере сета
-        return arrayQuestions[randomQuestion];
+    public Question getRandomQuestion() {
+        List<Question> questionList = new ArrayList<>(questionRepository.getAllQuestions());
+        int randomQuestionNumber = random.nextInt(questionList.size()); // рандомное число в размере листа
+        return questionList.get(randomQuestionNumber);
     }
 }
