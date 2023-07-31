@@ -34,11 +34,11 @@ public class ExaminerServiceTest {
 //                new Question("Question 3", "Answer 3"),
 //                new Question("Question 4", "Answer 4"));
 //    }
-//    @Test
-//    void shouldReturn3QuestionsWhileAmountEquals3() {
-//        Assertions.assertTrue(examinerService.getQuastions(3).size() == 3);
-//        // Assertions.assertEquals(3, examinerService.getQuastions(3).size());
-//    }
+    @Test
+    void shouldReturn2QuestionsWhileAmountEquals2() {
+        //Assertions.assertTrue(examinerService.getQuastions(2).size() == 2);
+        Assertions.assertEquals(2, examinerService.getQuastions(2).size());
+    }
 
     @Test
     void shouldThrowExceptionWhenAmountBiggerThanQuestionListSize() {
