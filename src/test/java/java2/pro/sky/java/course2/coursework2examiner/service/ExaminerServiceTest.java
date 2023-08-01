@@ -16,24 +16,20 @@ public class ExaminerServiceTest {
     @BeforeEach
     public void setUp() {
         questionService = Mockito.mock(QuestionService.class);
-
-        Question question1 = new Question("Question 1", "Answer 1");
-        Question question2 = new Question("Question 2", "Answer 2");
-        Question question3 = new Question("Question 3", "Answer 3");
-
-        Mockito.when(questionService.getAllQuestions()).thenReturn(List.of(question1, question2, question3));
+        Mockito.when(questionService.getAllQuestions()).thenReturn(questionList());
+        Mockito.when(questionService.getRandomQuestion())
+                .thenReturn(questionList().get(0))
+                .thenReturn(questionList().get(2));
 
         examinerService = new ExaminerServiceImpl(questionService);
-
-
     }
 
-//    private List<Question> questionList() {
-//        return List.of(new Question("Question 1", "Answer 1"),
-//                new Question("Question 2", "Answer 2"),
-//                new Question("Question 3", "Answer 3"),
-//                new Question("Question 4", "Answer 4"));
-//    }
+    private List<Question> questionList() {
+        return List.of(new Question("Question 1", "Answer 1"),
+                new Question("Question 2", "Answer 2"),
+                new Question("Question 3", "Answer 3"),
+                new Question("Question 4", "Answer 4"));
+    }
     @Test
     void shouldReturn2QuestionsWhileAmountEquals2() {
         //Assertions.assertTrue(examinerService.getQuastions(2).size() == 2);
