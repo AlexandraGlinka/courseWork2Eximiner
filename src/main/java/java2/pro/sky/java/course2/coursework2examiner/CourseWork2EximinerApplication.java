@@ -1,4 +1,4 @@
-package java.pro.sky.java.course2.coursework2eximiner;
+package java2.pro.sky.java.course2.coursework2examiner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
